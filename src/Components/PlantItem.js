@@ -13,7 +13,7 @@ const PlantItem = ({id, cover, name, water, light,price}) => {
                 <img src={cover} alt="mdr" className="Imj-plant-item-cover"/>
                 {name}
                 <br />
-                {price}
+                {price}€
                             <CareScale careType='water' scaleValue={water}/>
                             <CareScale careType='light' scaleValue={light}  />
                         

@@ -16,6 +16,7 @@ const ShoppingList = ({cart, updateCart}) => {
         }
         else
         {
+            currentPlant.amount = 1;
             updateCart([...cart, currentPlant]);
         }
     }
