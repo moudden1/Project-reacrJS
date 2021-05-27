@@ -4,9 +4,11 @@ import '../styles/ShoppingList.css'
 import PlantItem from "./PlantItem"
 
 
-const ShoppingList = ({cart, updateCart}) => {
-    const category = plantList.reduce((acc,plant) => acc.includes(plant.category) ? acc : acc.concat(plant.category),[])
-    console.log(category);
+const ShoppingList = ({selectValue, cart, updateCart}) => {
+    console.log(selectValue);
+         const plantListCat = selectValue ? plantList.filter((plant) => plant.category == selectValue) : plantList;
+
+    console.log(plantListCat);
     function addToCart(currentPlant){   
         const isHerethisPlant = cart.find((plant) => plant.name == currentPlant.name )
         if(isHerethisPlant)
@@ -22,15 +24,9 @@ const ShoppingList = ({cart, updateCart}) => {
     }
     return(
         <>
-            <ul>
-                            {category.map((categorie) => <li key={categorie}>{categorie}</li>)}
-            </ul>
+         
             <ul className='Imj-plant-list'>
-                            {/*plantList.map((plant) => (<li key={plant.id} className='lmj-plant-item'>{plant.name}{plant.isBestSale && <div className='lmj-sales'>soldes</div>}
-                            <CareScale careType='water' scaleValue={plant.water} />
-                            <CareScale careType='light' scaleValue={plant.light} />
-                            </li>)) */}
-                            {plantList.map((plant) => <div><PlantItem name={plant.name} cover={plant.cover} id={plant.id} light={plant.light} water={plant.water} price={plant.price}/>
+                            {plantListCat.map((plant) => <div><PlantItem name={plant.name} cover={plant.cover} id={plant.id} light={plant.light} water={plant.water} price={plant.price}/>
                                             <button onClick={() => addToCart(plant)}>Ajouter</button>
                                             </div>
                             )}

@@ -6,8 +6,7 @@ function Footer(){
 
     function verif(input){
         console.log(input);
-        if(!input.includes('@'))
-        {
+        if(!input.includes('@')){
             alert('Attention, il n\'y a pas d\'@, ceci n\'est pas une adresse valide.');
         }
     }
